@@ -1,8 +1,10 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, queryByAttribute } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+const getById = queryByAttribute.bind(null, 'id');
+const dom = render(<App />);
+
+test ('user story #1. a wrapper element with id of quote-box', ()=> {
+  const wrapperElement = getById(dom.container, 'quote-box');
+  expect(wrapperElement).toBeInTheDocument();
+})

@@ -1,24 +1,25 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import QuoteBox from './quoteBox/QuoteBox'
 import './App.css';
 
+
 function App() {
+  const [quote, setQuote] = useState('This is the first quote')
+  const [author, setauthor] = useState('Maxim Toon')
+
+  const handleNewQuote= (event) => {
+    event.preventDefault()
+    console.log('yoooo, who clicked me')
+  }
+
   return (
+   
+
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <QuoteBox quote={quote} author={author} handleNewQuote={handleNewQuote}/>
+      </div>
+    
+
   );
 }
 
